@@ -1,7 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"log"
+
+	"github.com/alpgozbasi/textsentimentor/internal/api"
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	fmt.Println("hello, textsentimentor!")
+	// create gin engine
+	r := gin.Default()
+
+	// setup routes
+	api.SetupRoutes(r)
+
+	// run server
+	log.Fatal(r.Run(":8080"))
+
 }
